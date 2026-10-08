@@ -22,7 +22,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/noto-sans-400.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonts/noto-sans-600.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
   <script src="site.js" defer></script>
 </head>
 <body>
@@ -31,8 +31,9 @@
     <header class="paper-header">
       <div class="header-logos">
         <a class="conference" href="https://neurips.cc/virtual/2026/poster/152857" target="_blank" rel="noopener noreferrer" aria-label="NeurIPS 2026 conference page"><img src="assets/neurips-logo.svg" alt="NeurIPS logo" width="130" height="58"></a>
-        <a class="project-logo" href="#main" aria-label="MEGA home"><img src="assets/mega-logo.svg" alt="MEGA" width="240" height="66"></a>
+        <nav class="section-nav" aria-label="Page sections"><a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#results">Results</a><a href="#benchmarks">Data</a><a href="#demo">Demo</a></nav>
       </div>
+      <a class="project-logo" href="#main" aria-label="MEGA home"><img src="assets/mega-logo-v5.png" alt="MEGA — evolution-stone inspired project wordmark" width="2172" height="724" fetchpriority="high"></a>
       <h1>Less Evidence, Better Answering:<br><span>Gain-Aware Minimal Evidence Subset Selection<br class="desktop-break"> for Medical QA</span></h1>
       <div class="authors" aria-label="Paper authors and affiliations">
         <span><a href="https://songyue-guo.github.io/" target="_blank" rel="noopener noreferrer">Songyue GUO</a><sup>1</sup></span>
@@ -50,16 +51,20 @@
       </div>
       <nav class="paper-links" aria-label="Paper resources">
         <a href="https://openreview.net/pdf?id=PsPjtMRFBs" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h6"/></svg>Paper</a>
+        <a class="code-link" href="https://github.com/mega-evidenceqa/MEGA" target="_blank" rel="noopener noreferrer" title="Initial research-component release; final FPTAS pipeline pending"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 5-6 7 6 7m8-14 6 7-6 7m-3-16-2 18"/></svg>Code</a>
+        <a class="data-link" href="https://github.com/mega-evidenceqa/MEGA/tree/main/data" target="_blank" rel="noopener noreferrer" title="Med-EvidenceQA annotations and preparation documentation; no source text or CRC release yet"><svg aria-hidden="true" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"/></svg>Data</a>
         <a class="demo-link" href="https://mdi.hkust-gz.edu.cn/evidence_qa/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21h8m-4-4v4m-6-10 3-3 3 3 3-4 3 3"/></svg>Live Demo <span aria-hidden="true">↗</span></a>
         <a href="#demo"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m10 8 6 4-6 4z"/></svg>Video</a>
         <a href="https://openreview.net/forum?id=PsPjtMRFBs" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H5l-3 2v-8.5A10.5 10.5 0 0 1 12.5 3H21zM7 8h10M7 12h10M7 16h6"/></svg>OpenReview</a>
         <a href="#citation"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 5-5 7 5 7m8-14 5 7-5 7m-3-16-2 18"/></svg>BibTeX</a>
       </nav>
+      <p class="hero-note">A compact evidence set. A better-grounded answer.</p>
     </header>
     <figure class="teaser paper-figure">
       <button class="figure-button" type="button" data-figure="assets/motivation.webp" data-caption="Motivating example: conventional medical RAG and MEGA." aria-label="Enlarge the motivating example"><img src="assets/motivation.webp" alt="A motivating clinical example compares top-k RAG with MEGA. RAG includes wrong-line, partially relevant, and redundant snippets; MEGA scores utility and selects compact supporting evidence." width="2383" height="809" fetchpriority="high"></button>
       <figcaption><span class="teaser-summary"><strong class="method-name">MEGA</strong> selects <strong>answer-critical evidence</strong>, rather than relying on relevance alone.</span><br><span class="teaser-detail">The paper’s motivating example illustrates how a compact supporting subset can avoid clinically mismatched or redundant context.</span></figcaption>
     </figure>
+    <div class="research-highlights" aria-label="Paper-reported highlights"><div><strong>+8.8<span>%</span></strong><p>Answer quality</p><small>Average relative improvement</small></div><div><strong>+38.8<span>%</span></strong><p>Evidence F1</p><small>Average relative improvement</small></div><div><strong class="budget-highlight">Budget-aware</strong><p>Compact evidence selection</p><small>An explicit evidence-token constraint</small></div><p class="highlight-source">Paper-reported gains over the second-best baseline. <a href="#results">Explore the results ↓</a></p></div>
     <section id="demo" class="paper-section demo-section" aria-labelledby="demo-heading">
       <h2 id="demo-heading">Demo</h2>
       <p class="section-intro">A walkthrough of our medical evidence-grounded question answering system.</p>
@@ -76,6 +81,7 @@
     <section id="method" class="paper-section" aria-labelledby="method-heading">
       <h2 id="method-heading">Method</h2>
       <p class="reading-width">The pipeline combines subquery generation and hybrid retrieval, frozen-model Information Gain Scoring, budgeted FPTAS evidence selection, and evidence-grounded answer generation.</p>
+      <ol class="method-steps"><li><span class="step-number">01</span><h3>Retrieve broadly</h3><p>Clinical subqueries and hybrid retrieval build a recall-oriented candidate pool.</p></li><li><span class="step-number">02</span><h3>Estimate utility</h3><p>Four frozen-model hidden-state signals score the contribution of each snippet.</p></li><li><span class="step-number">03</span><h3>Select compactly</h3><p>FPTAS balances additive utility and token cost under the evidence budget.</p></li><li><span class="step-number">04</span><h3>Answer with evidence</h3><p>The answering model receives the selected supporting subset.</p></li></ol>
       <figure class="paper-figure method-figure"><button class="figure-button" type="button" data-figure="assets/framework.webp" data-caption="The MEGA framework." aria-label="Enlarge the MEGA framework"><img src="assets/framework.webp" alt="MEGA pipeline: subquery generation and hybrid retrieval, hidden-state Information Gain Scoring, FPTAS subset selection under a token budget, and evidence-grounded answer generation." width="1552" height="634" loading="lazy"></button><figcaption>Information Gain Scoring combines cosine shift, representation drift, cross-layer coherence, and cross-layer gradient. The frozen scorer is separate from the answer-generation backbone.</figcaption></figure>
       <p class="technical-note reading-width">The hidden-state signals are evidence-utility proxies. The FPTAS approximation guarantee concerns the fixed additive selection objective; downstream answer quality and evidence grounding are evaluated empirically.</p>
     </section>
@@ -87,7 +93,7 @@
       <div class="analysis-grid"><figure class="paper-figure"><button class="figure-button" type="button" data-figure="assets/igs-analysis.webp" data-caption="IGS versus reranking for relevance and key-point coverage." aria-label="Enlarge the IGS comparison"><img src="assets/igs-analysis.webp" alt="Comparison of reranking and Information Gain Scoring on relevance and key-point coverage, using AUROC and Spearman correlation." width="1587" height="584" loading="lazy"></button><figcaption><strong>(a) Evidence utility.</strong> Combined IGS achieves 0.77 AUROC and 0.66 Spearman correlation for key-point coverage, versus 0.60 and 0.42 for the reranker.</figcaption></figure><figure class="paper-figure"><button class="figure-button" type="button" data-figure="assets/quality-token-tradeoff.webp" data-caption="Answer quality versus evidence-token length." aria-label="Enlarge the quality–token trade-off"><img src="assets/quality-token-tradeoff.webp" alt="Answer quality versus average evidence-token length across the evaluated methods and datasets." width="1581" height="955" loading="lazy"></button><figcaption><strong>(b) Evidence efficiency.</strong> On the PubMedQA comparison, MEGA uses 644 evidence tokens on average with an 8.2 normalized quality score.</figcaption></figure></div>
     </section>
     <section id="benchmarks" class="paper-section reading-width" aria-labelledby="benchmarks-heading"><h2 id="benchmarks-heading">Benchmarks</h2><p><strong>CRC-EvidenceQA</strong> contains 200 open-ended, clinician-collaborative colorectal cancer questions: 100 Chinese and 100 English, with 50 low-difficulty and 50 high-difficulty questions per language. We evaluate answer quality and Evidence F1.</p><p><strong>Med-EvidenceQA</strong> contains 1,000 yes/no/maybe examples adapted from PubMedQA and 1,973 extractive examples adapted from COVID-QA. It supports task-specific answer evaluation and evidence selection evaluation.</p></section>
-    <section id="resources" class="paper-section reading-width resources-section" aria-labelledby="resources-heading"><h2 id="resources-heading">Resources</h2><p><a href="https://openreview.net/pdf?id=PsPjtMRFBs" target="_blank" rel="noopener noreferrer">Paper</a> · <a href="https://mdi.hkust-gz.edu.cn/evidence_qa/" target="_blank" rel="noopener noreferrer">Live demo</a> · <a href="assets/demo.mp4" download>Demo video</a> · <a href="https://neurips.cc/virtual/2026/poster/152857" target="_blank" rel="noopener noreferrer">NeurIPS conference page</a></p><p class="resource-note">Public code and benchmark download links are not available on this page yet.</p></section>
+    <section id="resources" class="paper-section reading-width resources-section" aria-labelledby="resources-heading"><h2 id="resources-heading">Resources</h2><p><a href="https://openreview.net/pdf?id=PsPjtMRFBs" target="_blank" rel="noopener noreferrer">Paper</a> · <a href="https://github.com/mega-evidenceqa/MEGA" target="_blank" rel="noopener noreferrer">Code</a> · <a href="https://github.com/mega-evidenceqa/MEGA/tree/main/data" target="_blank" rel="noopener noreferrer">Data &amp; benchmark documentation</a> · <a href="https://mdi.hkust-gz.edu.cn/evidence_qa/" target="_blank" rel="noopener noreferrer">Live demo</a> · <a href="assets/demo.mp4" download>Demo video</a></p><p class="resource-note">Initial release: hidden-state scoring components, evaluation tools, and 2,973 Med-EvidenceQA evidence annotations (without source text). The final FPTAS pipeline and CRC-EvidenceQA release are pending. See the <a href="https://github.com/mega-evidenceqa/MEGA/blob/main/docs/RELEASE_STATUS.md" target="_blank" rel="noopener noreferrer">release status</a> for version alignment and remaining work.</p></section>
     <section id="citation" class="paper-section reading-width citation-section" aria-labelledby="citation-heading"><div class="citation-heading"><h2 id="citation-heading">BibTeX</h2><div class="citation-actions"><a href="citation.bib" download>Download .bib</a><button type="button" id="copy-citation">Copy BibTeX</button></div></div><pre class="bibtex"><code id="bibtex">@inproceedings{guo2026mega,
   title     = {Less Evidence, Better Answering: Gain-Aware Minimal
                Evidence Subset Selection for Medical QA},
@@ -96,7 +102,7 @@
   year      = {2026},
   url       = {https://openreview.net/forum?id=PsPjtMRFBs}
 }</code></pre><p id="copy-status" class="sr-only" aria-live="polite"></p></section>
-    <footer class="site-footer"><p>MEGA · NeurIPS 2026 · HKUST(GZ) &amp; HKUST</p><p>Layout references: <a href="https://nerfies.github.io/" target="_blank" rel="noopener noreferrer">Nerfies</a>, <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank" rel="noopener noreferrer">3D Gaussian Splatting</a>, and <a href="https://jonbarron.info/mipnerf360/" target="_blank" rel="noopener noreferrer">mip-NeRF 360</a>.</p></footer>
+    <footer class="site-footer"><p>MEGA · NeurIPS 2026 · HKUST(GZ) &amp; HKUST</p><p>Presentation inspired by <a href="https://ephemeral182.github.io/GenEvolve/" target="_blank" rel="noopener noreferrer">GenEvolve</a> and <a href="https://nerfies.github.io/" target="_blank" rel="noopener noreferrer">Nerfies</a>. Independently designed and implemented.</p></footer>
   </main>
   <dialog id="figure-dialog" class="figure-dialog" aria-labelledby="dialog-caption"><div class="dialog-toolbar"><p id="dialog-caption"></p><button type="button" id="close-dialog" aria-label="Close enlarged figure">Close ×</button></div><div class="dialog-image-wrap"><img id="dialog-image" alt=""></div><p class="dialog-help">Scroll to inspect the full-resolution figure. Press Esc to close.</p></dialog>
 </body>

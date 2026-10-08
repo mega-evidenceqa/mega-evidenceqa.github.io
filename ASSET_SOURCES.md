@@ -13,6 +13,7 @@ Marks are included to identify the authors' institutions and the paper's confere
 ## Project assets
 
 - `mega-logo.svg` and `favicon.svg`: independently designed, editable SVG marks. The M resembles a selected evidence page, with a gold corner and a faint background sheet.
+- `mega-logo-v5.png`: original transparent evolution-stone / energy-helix wordmark generated with the built-in image-generation tool; 2172 × 724 pixels. The generation prompt is retained in `assets/MEGA-logo-prompt.md`. It is not an official Pokémon mark or an endorsement.
 - Paper figures: rendered from the manuscript provided by the authors. External white PDF page margins were trimmed; scientific figure contents were not redrawn.
 - `demo.mp4`: converted from the user-provided `demo.qt`. Full duration: approximately 57.08 seconds; web resolution: 1280 × 772. The original recording is preserved outside the website directory.
 - `demo-poster.jpg`: an actual frame at 7 seconds from the provided recording.

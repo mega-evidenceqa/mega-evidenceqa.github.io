@@ -1,5 +1,46 @@
 'use strict';
 
+// Respect reduced motion and keep the page fully readable without JavaScript.
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+let revealObserver;
+function initializeMotion() {
+  if (motionPreference.matches || !('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('motion-ready');
+  revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    });
+  }, {threshold: .06, rootMargin: '0px 0px -24px 0px'});
+  document.querySelectorAll('.teaser,.paper-section>h2,.paper-section>p,.paper-section>figure,.research-highlights>div,.method-steps>li,.results-toolbar,#results-panel,.analysis-grid>figure,.citation-heading,.bibtex').forEach(element => {
+    element.classList.add('reveal');
+    if (element.parentElement.matches('.method-steps,.research-highlights,.analysis-grid')) {
+      const index = [...element.parentElement.children].indexOf(element);
+      element.style.setProperty('--reveal-delay', `${Math.min(index, 3) * .08}s`);
+    }
+    revealObserver.observe(element);
+  });
+}
+initializeMotion();
+motionPreference.addEventListener('change', event => {
+  if (!event.matches) return;
+  revealObserver?.disconnect();
+  document.documentElement.classList.remove('motion-ready');
+  document.querySelectorAll('.reveal').forEach(element => element.classList.add('visible'));
+});
+document.addEventListener('focusin', event => {
+  event.target.closest('.reveal')?.classList.add('visible');
+});
+function revealHashDestination() {
+  const destination = document.getElementById(location.hash.slice(1));
+  if (!destination) return;
+  destination.querySelectorAll('.reveal').forEach(element => element.classList.add('visible'));
+  destination.closest('.reveal')?.classList.add('visible');
+}
+window.addEventListener('hashchange', revealHashDestination);
+revealHashDestination();
+
 // Paper Table 1, active (non-commented) rows. Every cell is [mean, std].
 const results = {
   gpt: { name: 'GPT-4.1', rows: [

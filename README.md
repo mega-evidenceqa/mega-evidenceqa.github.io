@@ -15,11 +15,13 @@ MEGA retrieves a broad candidate pool, estimates evidence utility using hidden-s
 Buildless HTML, CSS, and JavaScript. No npm install, API keys, analytics, or external UI dependencies.
 
 - Responsive desktop/mobile layout.
-- Traditional publication-first typography using locally hosted Noto Sans, explicit author affiliations, and university/conference logos.
-- NeurIPS and MEGA marks above the title, without an "Accepted Paper" label; both university marks use their original blue/gold color versions.
-- Prominent rounded Paper / Live Demo / Video / OpenReview / BibTeX buttons with matching icons and keyboard focus states.
+- A large evolution-stone-inspired MEGA hero wordmark, restrained violet accents, and locally hosted Noto Sans; explicit author affiliations and unchanged blue/gold institution marks.
+- NeurIPS above the title, without an "Accepted Paper" label; lightweight page-section navigation.
+- Staggered hero entrance and one-time scroll reveals, with visible no-JavaScript fallback and reduced-motion support.
+- Prominent rounded Paper / Code / Data / Live Demo / Video / OpenReview / BibTeX buttons with matching icons and keyboard focus states.
 - Selective emphasis for MEGA, the core selection steps, and the paper-reported relative gains.
-- A redesigned editable SVG MEGA logo and favicon.
+- Original generated transparent PNG wordmark (prompt retained in `assets/MEGA-logo-prompt.md`); earlier editable SVG mark retained as a fallback asset.
+- Paper-reported highlights and four compact method steps; no new experimental claims.
 - Embedded 57-second video, click-to-load MP4 playback, and a live-system link.
 - Original paper figures, with full-resolution enlargement.
 - Main results across three LLM backbones, with standard deviations.
@@ -52,7 +54,7 @@ If a different URL is used, update `og:url`, `og:image`, and the canonical link 
 | `styles.css` | Colors, spacing, mobile layout |
 | `assets/` | Paper figures and social preview |
 
-Public code/dataset download URLs were not provided, so the resource section explicitly leaves these unlinked. The private medical-system repository is not used as a public code link.
+Code and Data buttons lead to [mega-evidenceqa/MEGA](https://github.com/mega-evidenceqa/MEGA), a separate curated public research-component repository. The current release includes the available IGS snapshot, evaluation/preparation utilities, and 2,973 text-free evidence-annotation records. It is not the complete final-paper reproduction package: final FPTAS code, exact prepared source texts and CRC-EvidenceQA are still pending. The page states these limitations explicitly. The private medical-system repository is not used as a public code link or made public.
 
 ## Content provenance
 
@@ -62,7 +64,7 @@ Result values and standard deviations are copied from the active main-results ta
 
 Figures are rendered from the supplied manuscript assets, retaining their content, colors, and layout; only exterior white page margins are trimmed. The motivation illustration is not represented as an aggregate evaluation.
 
-This is a project website, not a release of the MEGA implementation or datasets.
+This repository contains the project website only. Research code and annotations are maintained separately in the Code/Data repository.
 
 `assets/demo.mp4` is a browser-compatible conversion of the supplied `demo.qt`, retaining the complete 57.08-second walkthrough. The video poster is an actual frame from that recording. No autoplay or background video download is enabled.
 
@@ -70,7 +72,7 @@ Institution and conference graphics are downloaded from their official websites.
 
 ## Design references
 
-The revised layout follows the traditional academic presentation of [Nerfies](https://nerfies.github.io/), [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/), and [mip-NeRF 360](https://jonbarron.info/mipnerf360/): centered title/authors, rounded icon buttons, sans-serif typography, affiliation superscripts, institution marks, and direct figure/video presentation. The page is independently implemented; their code, graphics, and analytics were not copied. Noto Sans is included locally under the SIL Open Font License, so the website does not depend on an external font service.
+The visual hierarchy, large artistic wordmark, and progressive entrance rhythm reference [GenEvolve](https://ephemeral182.github.io/GenEvolve/), while retaining the academic title/authors/resources pattern of [Nerfies](https://nerfies.github.io/). The implementation is original; reference-site code, graphics and analytics were not copied. The evolution-stone motif is an original generated project mark, not an official Pokémon logo or affiliation. Noto Sans is included locally under the SIL Open Font License, so the website does not depend on an external font service.
 
 ## Citation
 
