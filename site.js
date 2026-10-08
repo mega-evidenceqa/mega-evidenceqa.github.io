@@ -41,6 +41,30 @@ function revealHashDestination() {
 window.addEventListener('hashchange', revealHashDestination);
 revealHashDestination();
 
+// The floating navigation follows the reading position without moving the page.
+const sectionLinks = [...document.querySelectorAll('.section-nav a[href^="#"]')];
+const navigationSections = sectionLinks.map(link => ({link, section:document.getElementById(link.hash.slice(1))})).filter(item => item.section);
+let navigationFrame;
+function updateCurrentSection() {
+  navigationFrame = undefined;
+  const marker = document.querySelector('.floating-nav').getBoundingClientRect().bottom + 75;
+  const passed = navigationSections.filter(item => item.section.getBoundingClientRect().top <= marker);
+  passed.sort((a, b) => b.section.getBoundingClientRect().top - a.section.getBoundingClientRect().top);
+  const current = passed[0]?.link;
+  sectionLinks.forEach(link => {
+    if (link === current) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+}
+function queueNavigationUpdate() {
+  if (navigationFrame !== undefined) return;
+  navigationFrame = requestAnimationFrame(updateCurrentSection);
+}
+window.addEventListener('scroll', queueNavigationUpdate, {passive:true});
+window.addEventListener('resize', queueNavigationUpdate, {passive:true});
+window.addEventListener('load', queueNavigationUpdate);
+queueNavigationUpdate();
+
 // Paper Table 1, active (non-commented) rows. Every cell is [mean, std].
 const results = {
   gpt: { name: 'GPT-4.1', rows: [

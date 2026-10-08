@@ -16,11 +16,11 @@ Buildless HTML, CSS, and JavaScript. No npm install, API keys, analytics, or ext
 
 - Responsive desktop/mobile layout.
 - A large evolution-stone-inspired MEGA hero wordmark, restrained violet accents, and locally hosted Noto Sans; explicit author affiliations and unchanged blue/gold institution marks.
-- NeurIPS above the title, without an "Accepted Paper" label; lightweight page-section navigation.
+- A floating NeurIPS/section navigation bar, without an "Accepted Paper" label, with reading-position highlighting and unobscured anchor destinations.
 - Staggered hero entrance and one-time scroll reveals, with visible no-JavaScript fallback and reduced-motion support.
-- Prominent rounded Paper / Code / Data / Live Demo / Video / OpenReview / BibTeX buttons with matching icons and keyboard focus states.
+- Centered paper content with a fixed right-side Paper / Code / Data / Live Demo / Video / OpenReview / BibTeX resource rail on screens at least 1,200px wide; the same buttons become inline pills on narrower screens.
 - Selective emphasis for MEGA, the core selection steps, and the paper-reported relative gains.
-- Original generated transparent PNG wordmark (prompt retained in `assets/MEGA-logo-prompt.md`); earlier editable SVG mark retained as a fallback asset.
+- Original generated transparent PNG wordmark (prompt retained in `assets/MEGA-logo-prompt.md`); its evolution-stone emblem is also the browser favicon and Apple touch icon, with extraction prompt in `assets/MEGA-favicon-prompt.md`. Earlier editable SVG marks are retained as unused assets.
 - Paper-reported highlights and four compact method steps; no new experimental claims.
 - Embedded 57-second video, click-to-load MP4 playback, and a live-system link.
 - Original paper figures, with full-resolution enlargement.

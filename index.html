@@ -19,20 +19,21 @@
   <meta name="citation_author" content="Caleb Chen Cao">
   <meta name="citation_author" content="Lei Chen">
   <meta name="citation_conference_title" content="NeurIPS 2026">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/mega-icon-v6.png?v=6" type="image/png">
+  <link rel="apple-touch-icon" href="assets/mega-icon-v6.png?v=6">
   <link rel="preload" href="assets/fonts/noto-sans-400.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonts/noto-sans-600.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=5">
-  <script src="site.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=6">
+  <script src="site.js?v=6" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="header-logos floating-nav">
+    <a class="conference" href="https://neurips.cc/virtual/2026/poster/152857" target="_blank" rel="noopener noreferrer" aria-label="NeurIPS 2026 conference page"><img src="assets/neurips-logo.svg" alt="NeurIPS logo" width="130" height="58"></a>
+    <nav class="section-nav" aria-label="Page sections"><a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#results">Results</a><a href="#benchmarks">Data</a><a href="#demo">Demo</a></nav>
+  </div>
   <main id="main" class="page">
     <header class="paper-header">
-      <div class="header-logos">
-        <a class="conference" href="https://neurips.cc/virtual/2026/poster/152857" target="_blank" rel="noopener noreferrer" aria-label="NeurIPS 2026 conference page"><img src="assets/neurips-logo.svg" alt="NeurIPS logo" width="130" height="58"></a>
-        <nav class="section-nav" aria-label="Page sections"><a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#results">Results</a><a href="#benchmarks">Data</a><a href="#demo">Demo</a></nav>
-      </div>
       <a class="project-logo" href="#main" aria-label="MEGA home"><img src="assets/mega-logo-v5.png" alt="MEGA — evolution-stone inspired project wordmark" width="2172" height="724" fetchpriority="high"></a>
       <h1>Less Evidence, Better Answering:<br><span>Gain-Aware Minimal Evidence Subset Selection<br class="desktop-break"> for Medical QA</span></h1>
       <div class="authors" aria-label="Paper authors and affiliations">
@@ -49,6 +50,10 @@
         <a href="https://www.hkust-gz.edu.cn/en/" target="_blank" rel="noopener noreferrer"><img src="assets/hkust-gz-logo.png" alt="HKUST (Guangzhou)" width="265" height="49"></a>
         <a href="https://hkust.edu.hk/" target="_blank" rel="noopener noreferrer"><img src="assets/hkust-logo-blue-gold.png" alt="HKUST" width="191" height="60"></a>
       </div>
+      <p class="hero-note">A compact evidence set. A better-grounded answer.</p>
+    </header>
+    <aside class="resource-rail" aria-label="Project resource shortcuts">
+      <p class="rail-label">Resources</p>
       <nav class="paper-links" aria-label="Paper resources">
         <a href="https://openreview.net/pdf?id=PsPjtMRFBs" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h6"/></svg>Paper</a>
         <a class="code-link" href="https://github.com/mega-evidenceqa/MEGA" target="_blank" rel="noopener noreferrer" title="Initial research-component release; final FPTAS pipeline pending"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 5-6 7 6 7m8-14 6 7-6 7m-3-16-2 18"/></svg>Code</a>
@@ -58,8 +63,8 @@
         <a href="https://openreview.net/forum?id=PsPjtMRFBs" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H5l-3 2v-8.5A10.5 10.5 0 0 1 12.5 3H21zM7 8h10M7 12h10M7 16h6"/></svg>OpenReview</a>
         <a href="#citation"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 5-5 7 5 7m8-14 5 7-5 7m-3-16-2 18"/></svg>BibTeX</a>
       </nav>
-      <p class="hero-note">A compact evidence set. A better-grounded answer.</p>
-    </header>
+      <a class="rail-home" href="#main">Back to top <span aria-hidden="true">↑</span></a>
+    </aside>
     <figure class="teaser paper-figure">
       <button class="figure-button" type="button" data-figure="assets/motivation.webp" data-caption="Motivating example: conventional medical RAG and MEGA." aria-label="Enlarge the motivating example"><img src="assets/motivation.webp" alt="A motivating clinical example compares top-k RAG with MEGA. RAG includes wrong-line, partially relevant, and redundant snippets; MEGA scores utility and selects compact supporting evidence." width="2383" height="809" fetchpriority="high"></button>
       <figcaption><span class="teaser-summary"><strong class="method-name">MEGA</strong> selects <strong>answer-critical evidence</strong>, rather than relying on relevance alone.</span><br><span class="teaser-detail">The paper’s motivating example illustrates how a compact supporting subset can avoid clinically mismatched or redundant context.</span></figcaption>
