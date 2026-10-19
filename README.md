@@ -12,7 +12,7 @@ MEGA retrieves a broad candidate pool, estimates evidence utility using hidden-s
 
 ## Website
 
-Buildless HTML, CSS, and JavaScript. No npm install, API keys, analytics, or external UI dependencies.
+Buildless HTML, CSS, and JavaScript. No npm install, API keys, or external UI dependencies. Optional best-effort traffic counting uses the public Busuanzi API; no third-party JavaScript is executed.
 
 - Responsive desktop/mobile layout.
 - A large evolution-stone-inspired MEGA hero wordmark, restrained violet accents, and locally hosted Noto Sans; explicit author affiliations and unchanged blue/gold institution marks.
@@ -49,12 +49,23 @@ If a different URL is used, update `og:url`, `og:image`, and the canonical link 
 | --- | --- |
 | `index.html` | Authors, paper links, venue, narrative, resource availability |
 | `site.js` | Main-table values and model tabs |
+| `visitor-stats.js` | PV/UV counting, privacy signals, production-host restriction |
 | `results.csv` | Downloadable version of the same results |
 | `citation.bib` | Paper citation |
 | `styles.css` | Colors, spacing, mobile layout |
 | `assets/` | Paper figures and social preview |
 
 Code and Data buttons lead to [mega-evidenceqa/MEGA](https://github.com/mega-evidenceqa/MEGA), a separate curated public research-component repository. The current release includes the available IGS snapshot, evaluation/preparation utilities, and 2,973 text-free evidence-annotation records. It is not the complete final-paper reproduction package: final FPTAS code, exact prepared source texts and CRC-EvidenceQA are still pending. The page states these limitations explicitly. The private medical-system repository is not used as a public code link or made public.
+
+## Visitor statistics
+
+- **Page views (PV):** recorded homepage loads. One POST per document load updates both desktop and mobile displays; navigating anchors or model tabs does not send more requests.
+- **Visitors (UV):** an approximate deduplicated visitor count, initially based on IP + User-Agent, with a signed browser identity retained in local storage. It is not an exact independent-IP or people count. The provider uses HyperLogLog for UV aggregation.
+- The free public [Busuanzi deployment](https://busuanzi.9420.ltd/) and its [documented API/identification scheme](https://github.com/soxft/busuanzi/wiki/usage) are used. The API endpoint `https://bsz.iirose.cn/api` was verified from the provider's current published script on 19 October 2026. Counts begin at deployment; visits before installation cannot be reconstructed. Blocking/privacy tools, bots, shared networks and provider availability can affect the result. There is no SLA, data ownership dashboard, or guaranteed retention on this public service.
+- Only `https://mega-evidenceqa.github.io` counts visits. Local previews/forks never contact the service. Use `?stats=off` for production QA without counting, and `&stats=off` if another query is already present. Do Not Track and Global Privacy Control suppress all counter requests.
+- The third party necessarily receives the connection IP and browser User-Agent. The custom `x-bsz-referer` header always contains only `https://mega-evidenceqa.github.io/`, never query strings or fragments. No raw IP is displayed publicly, no medical/demo data is sent, no third-party script is loaded, and no cookies are sent with the API request. A signed visitor identity is stored as `mega-visitor-id` in local storage when available.
+- Failure/timeout leaves an em dash and an unavailable message, never a fabricated zero. No automatic retry is made, since a timed-out request might already have counted.
+- A private raw-IP/geographic dashboard or exact independent-IP totals would require a separately configured analytics backend; this public aggregate counter does not provide one.
 
 ## Content provenance
 

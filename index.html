@@ -23,8 +23,9 @@
   <link rel="apple-touch-icon" href="assets/mega-icon-v6.png?v=6">
   <link rel="preload" href="assets/fonts/noto-sans-400.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonts/noto-sans-600.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
   <script src="site.js?v=6" defer></script>
+  <script src="visitor-stats.js?v=7" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -63,6 +64,15 @@
         <a href="https://openreview.net/forum?id=PsPjtMRFBs" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H5l-3 2v-8.5A10.5 10.5 0 0 1 12.5 3H21zM7 8h10M7 12h10M7 16h6"/></svg>OpenReview</a>
         <a href="#citation"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 5-5 7 5 7m8-14 5 7-5 7m-3-16-2 18"/></svg>BibTeX</a>
       </nav>
+      <section class="visit-stats rail-traffic" aria-label="Website traffic">
+        <p class="stats-heading">Traffic</p>
+        <dl class="visit-metrics">
+          <div><dt>Page views</dt><dd data-visit-count="page_pv">—</dd></div>
+          <div><dt>Visitors (UV)</dt><dd data-visit-count="site_uv">—</dd></div>
+        </dl>
+        <p class="stats-status" data-visit-status role="status">Loading statistics…</p>
+        <a class="stats-info" href="#traffic-note">About these counts</a>
+      </section>
       <a class="rail-home" href="#main">Back to top <span aria-hidden="true">↑</span></a>
     </aside>
     <figure class="teaser paper-figure">
@@ -107,7 +117,24 @@
   year      = {2026},
   url       = {https://openreview.net/forum?id=PsPjtMRFBs}
 }</code></pre><p id="copy-status" class="sr-only" aria-live="polite"></p></section>
-    <footer class="site-footer"><p>MEGA · NeurIPS 2026 · HKUST(GZ) &amp; HKUST</p><p>Presentation inspired by <a href="https://ephemeral182.github.io/GenEvolve/" target="_blank" rel="noopener noreferrer">GenEvolve</a> and <a href="https://nerfies.github.io/" target="_blank" rel="noopener noreferrer">Nerfies</a>. Independently designed and implemented.</p></footer>
+    <footer class="site-footer">
+      <section class="visit-stats footer-traffic" aria-label="Website traffic">
+        <p class="stats-heading">Traffic</p>
+        <dl class="visit-metrics">
+          <div><dt>Page views</dt><dd data-visit-count="page_pv">—</dd></div>
+          <div><dt>Visitors (UV)</dt><dd data-visit-count="site_uv">—</dd></div>
+        </dl>
+        <p class="stats-status" data-visit-status role="status">Loading statistics…</p>
+      </section>
+      <noscript><p>Visitor statistics require JavaScript.</p></noscript>
+      <p>MEGA · NeurIPS 2026 · HKUST(GZ) &amp; HKUST</p>
+      <p>Presentation inspired by <a href="https://ephemeral182.github.io/GenEvolve/" target="_blank" rel="noopener noreferrer">GenEvolve</a> and <a href="https://nerfies.github.io/" target="_blank" rel="noopener noreferrer">Nerfies</a>. Independently designed and implemented.</p>
+      <details id="traffic-note" class="traffic-note">
+        <summary>About visitor statistics &amp; privacy</summary>
+        <p>Counts start on 19 October 2026. Page views count homepage loads; Visitors (UV) is an approximate, IP-and-browser-based deduplicated count, not an exact unique-IP or people count. Shared networks, different browsers, privacy tools and automated visits can affect these totals.</p>
+        <p>Counting uses the public <a href="https://github.com/soxft/busuanzi/wiki/usage" target="_blank" rel="noopener noreferrer">Busuanzi service</a>. It receives your IP address, browser information and this site's canonical homepage URL. A signed visitor ID is stored in your browser to reduce duplicate visitor counts. URL queries and fragments are not sent by our counter; raw IP addresses are not displayed on this page. Do Not Track and Global Privacy Control are respected. The free service provides no uptime or data-retention guarantee.</p>
+      </details>
+    </footer>
   </main>
   <dialog id="figure-dialog" class="figure-dialog" aria-labelledby="dialog-caption"><div class="dialog-toolbar"><p id="dialog-caption"></p><button type="button" id="close-dialog" aria-label="Close enlarged figure">Close ×</button></div><div class="dialog-image-wrap"><img id="dialog-image" alt=""></div><p class="dialog-help">Scroll to inspect the full-resolution figure. Press Esc to close.</p></dialog>
 </body>
