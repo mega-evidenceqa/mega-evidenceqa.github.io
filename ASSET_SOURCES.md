@@ -19,6 +19,7 @@ Marks are included to identify the authors' institutions and the paper's confere
 - `demo.mp4`: converted from the user-provided `demo.qt`. Full duration: approximately 57.08 seconds; web resolution: 1280 × 772. The original recording is preserved outside the website directory.
 - `demo-poster.jpg`: an actual frame at 7 seconds from the provided recording.
 - `social-preview.png`: rendered from this website's header.
+- Live visitor map: original Flag Counter image at `https://s05.flagcounter.com/map/gaYU/size_l/txt_5541A7/border_FFFFFF/pageviews_0/viewers_MEGA+Visitors/flags_0/`, linked to `https://info.flagcounter.com/gaYU`. Public widget `gaYU` was created for this project on 19 October 2026 and embedded on 21 October. Its map/background, flags and provider marks are not redrawn, cropped, proxied, or covered by a new license from this project. The image is loaded from the provider only on live visits, not stored as a website asset. Provider FAQ/terms/privacy: `https://flagcounter.com/faq.html`, `https://flagcounter.com/terms.html`, `https://flagcounter.com/privacy.html`.
 
 Live demo: `https://mdi.hkust-gz.edu.cn/evidence_qa/` (supplied by the author).
 

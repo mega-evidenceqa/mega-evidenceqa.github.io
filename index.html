@@ -23,9 +23,9 @@
   <link rel="apple-touch-icon" href="assets/mega-icon-v6.png?v=6">
   <link rel="preload" href="assets/fonts/noto-sans-400.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonts/noto-sans-600.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
   <script src="site.js?v=6" defer></script>
-  <script src="visitor-stats.js?v=7" defer></script>
+  <script src="visitor-stats.js?v=8" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -71,6 +71,7 @@
           <div><dt>Visitors (UV)</dt><dd data-visit-count="site_uv">—</dd></div>
         </dl>
         <p class="stats-status" data-visit-status role="status">Loading statistics…</p>
+        <a class="stats-map-link" href="#visitors">Visitor map <span aria-hidden="true">↓</span></a>
         <a class="stats-info" href="#traffic-note">About these counts</a>
       </section>
       <a class="rail-home" href="#main">Back to top <span aria-hidden="true">↑</span></a>
@@ -117,6 +118,19 @@
   year      = {2026},
   url       = {https://openreview.net/forum?id=PsPjtMRFBs}
 }</code></pre><p id="copy-status" class="sr-only" aria-live="polite"></p></section>
+    <section id="visitors" class="visitor-geography" aria-labelledby="visitor-map-heading">
+      <h2 id="visitor-map-heading">Visitors around the world</h2>
+      <p class="visitor-map-intro">Countries and regions our visitors connect from.</p>
+      <figure class="visitor-map-figure">
+        <div class="visitor-map-stage">
+          <a id="visitor-map-link" href="https://info.flagcounter.com/gaYU" target="_blank" rel="noopener noreferrer" aria-label="View visitor country and region statistics on Flag Counter" hidden>
+            <img id="visitor-map-image" data-map-src="https://s05.flagcounter.com/map/gaYU/size_l/txt_5541A7/border_FFFFFF/pageviews_0/viewers_MEGA+Visitors/flags_0/" alt="Flag Counter world map marking the countries and regions that have visited the MEGA project website. Open the country and region breakdown for counts." width="800" height="375" referrerpolicy="no-referrer" fetchpriority="low">
+          </a>
+          <p id="visitor-map-status" class="visitor-map-status" role="status">The visitor map requires JavaScript.</p>
+        </div>
+        <figcaption><a href="https://info.flagcounter.com/gaYU" target="_blank" rel="noopener noreferrer">Country &amp; region breakdown <span aria-hidden="true">↗</span></a><span>IP-based estimates · independent of the PV/UV counter</span></figcaption>
+      </figure>
+    </section>
     <footer class="site-footer">
       <section class="visit-stats footer-traffic" aria-label="Website traffic">
         <p class="stats-heading">Traffic</p>
@@ -133,6 +147,7 @@
         <summary>About visitor statistics &amp; privacy</summary>
         <p>Counts start on 19 October 2026. Page views count homepage loads; Visitors (UV) is an approximate, IP-and-browser-based deduplicated count, not an exact unique-IP or people count. Shared networks, different browsers, privacy tools and automated visits can affect these totals.</p>
         <p>Counting uses the public <a href="https://github.com/soxft/busuanzi/wiki/usage" target="_blank" rel="noopener noreferrer">Busuanzi service</a>. It receives your IP address, browser information and this site's canonical homepage URL. A signed visitor ID is stored in your browser to reduce duplicate visitor counts. URL queries and fragments are not sent by our counter; raw IP addresses are not displayed on this page. Do Not Track and Global Privacy Control are respected. The free service provides no uptime or data-retention guarantee.</p>
+        <p>The country map was added on 21 October 2026 using <a href="https://flagcounter.com/privacy.html" target="_blank" rel="noopener noreferrer">Flag Counter</a>. Its image receives your IP and browser information to estimate a country or region; our embed sends no referring URL and loads no third-party JavaScript. Only aggregate country/region information is displayed, not raw IPs or exact locations. VPNs and network routing can affect the detected origin. The map uses a separate count, includes initial setup/verification visits, and cannot reconstruct earlier homepage visits. The free image may update about five minutes later than the linked statistics page. The provider's separate statistics website may show advertising and use cookies; the embedded map itself does not use cookies. Privacy signals and <code>?stats=off</code> disable both statistics services on this page.</p>
       </details>
     </footer>
   </main>

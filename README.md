@@ -12,7 +12,7 @@ MEGA retrieves a broad candidate pool, estimates evidence utility using hidden-s
 
 ## Website
 
-Buildless HTML, CSS, and JavaScript. No npm install, API keys, or external UI dependencies. Optional best-effort traffic counting uses the public Busuanzi API; no third-party JavaScript is executed.
+Buildless HTML, CSS, and JavaScript. No npm install, API keys, or external UI dependencies. Best-effort traffic counting uses the public Busuanzi API, with a separate Flag Counter image for country/region origins; no third-party JavaScript is executed.
 
 - Responsive desktop/mobile layout.
 - A large evolution-stone-inspired MEGA hero wordmark, restrained violet accents, and locally hosted Noto Sans; explicit author affiliations and unchanged blue/gold institution marks.
@@ -26,6 +26,7 @@ Buildless HTML, CSS, and JavaScript. No npm install, API keys, or external UI de
 - Original paper figures, with full-resolution enlargement.
 - Main results across three LLM backbones, with standard deviations.
 - Keyboard-accessible model tabs, downloadable results, and copyable BibTeX.
+- A responsive world visitor map near the footer, with country/region breakdown and the original provider attribution retained.
 
 Preview locally:
 
@@ -49,7 +50,7 @@ If a different URL is used, update `og:url`, `og:image`, and the canonical link 
 | --- | --- |
 | `index.html` | Authors, paper links, venue, narrative, resource availability |
 | `site.js` | Main-table values and model tabs |
-| `visitor-stats.js` | PV/UV counting, privacy signals, production-host restriction |
+| `visitor-stats.js` | PV/UV counting, visitor-map loading, privacy signals, production-host restriction |
 | `results.csv` | Downloadable version of the same results |
 | `citation.bib` | Paper citation |
 | `styles.css` | Colors, spacing, mobile layout |
@@ -66,6 +67,16 @@ Code and Data buttons lead to [mega-evidenceqa/MEGA](https://github.com/mega-evi
 - The third party necessarily receives the connection IP and browser User-Agent. The custom `x-bsz-referer` header always contains only `https://mega-evidenceqa.github.io/`, never query strings or fragments. No raw IP is displayed publicly, no medical/demo data is sent, no third-party script is loaded, and no cookies are sent with the API request. A signed visitor identity is stored as `mega-visitor-id` in local storage when available.
 - Failure/timeout leaves an em dash and an unavailable message, never a fabricated zero. No automatic retry is made, since a timed-out request might already have counted.
 - A private raw-IP/geographic dashboard or exact independent-IP totals would require a separately configured analytics backend; this public aggregate counter does not provide one.
+
+### Country and region visitor map
+
+The map added on 21 October 2026 is the original live [Flag Counter](https://flagcounter.com/) image for this project, not an illustration or invented geographic dataset. Registration was completed during setup on 19 October, without an email, paid plan, or management account. The public widget ID is `gaYU` on `s05.flagcounter.com`; the [country/region statistics page](https://info.flagcounter.com/gaYU) is linked from the image and caption. Do not create a new widget on routine edits, or its accumulated geographic counts will be lost. Initial setup and verification visits are included.
+
+- Only the production domain loads the image, once per document load, with `referrerpolicy="no-referrer"`; local previews, `?stats=off`, Do Not Track and Global Privacy Control make no map request. No extra analytics script, geolocation prompt, GPS coordinate or raw-IP display is added.
+- The image loads eagerly (at low priority) so visits are not limited to people who reach the footer. Anchor clicks, tab changes and viewport changes do not reload it. A failed/12-second timed-out load shows an unavailable message and leaves the breakdown link usable, without a fake map, broken-image indicator, or automatic retry.
+- According to the provider's [FAQ](https://flagcounter.com/faq.html), the default repeat-visitor window is 24 hours and the free embedded image can lag the linked statistics page by roughly five minutes. These country counts are separate from Busuanzi's PV/UV and must not be expected to match exactly. IP geolocation can be affected by VPNs, shared networks and routing. Historical homepage origins cannot be reconstructed.
+- According to the provider's [privacy policy](https://flagcounter.com/privacy.html), its free image tallies aggregate countries/regions, uses no cookies, and does not expose raw IPs or precise visitor locations. The provider necessarily receives IP/browser connection data; the project's embed suppresses the referring URL. Clicking through to the provider's statistics website may encounter advertising and cookies. Retain its original image, attribution and statistics link; do not proxy, crop or hide the branding.
+- The free provider may remove counters with no new visitor for over 30 days and offers no guaranteed retention. An email was not submitted, so no private management login was created; a different owner-managed solution would need separate setup if required later.
 
 ## Content provenance
 
